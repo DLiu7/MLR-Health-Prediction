@@ -36,11 +36,11 @@ print(path)
 print(fileList)
 
 # STEP 11 START
-q = 4
-A = np.zeros(shape=(q, q))
-z = np.matrix(np.zeros(shape=(q, 1)))
-sumSqrs = 0
-n = 0
+q = 4 # Number of features
+A = np.zeros(shape=(q, q)) # 4 x 4 Matrix of 0s
+z = np.matrix(np.zeros(shape=(q, 1))) # 4 x 1 Vector of 0s
+sumSqrs = 0 # Sum of squares
+n = 0 # Number of records
 # STEP 11 END
 for filename in fileList:
     try:
@@ -82,20 +82,20 @@ for filename in fileList:
                     # STEP 10 START
                     try:
                         if education < 9 and income < 9 and 0 < bmi < 99 and y != -1:
-                            x = np.matrix([1, income, education, bmi]).T
+                            x = np.matrix([1, income, education, bmi]).T # Vector of 4 x 1
                         else:
                             1 / 0
 
                         # STEP 12 START
-                        A += x * x.T
-                        z += x * y
-                        sumSqrs += y**2
-                        n += 1
+                        A += x * x.T # 4 x 4 matrix for X^T X
+                        z += x * y # 4 x 1 vector for X^T Y
+                        sumSqrs += y**2 # Y^T Y
+                        n += 1 # row counter
                         # STEP 12 END
 
                         # STEP 13 START
                         if n % 10_000 == 0 and n != 0:
-                            # b = # Your Code Here
+                            b = np.linalg.inv(A) * z # Slope coefficient β = (X^T X)^(-1) X^T Y
                             print("\t".join(str(float(bi[0, 0])) for bi in b))
                         # STEP 13 END
                     except ZeroDivisionError:
@@ -107,12 +107,12 @@ for filename in fileList:
 # STEP 4 END
 
 # STEP 14 START
-ybar = # Your Code Here
-varEst = # Your Code Here
+ybar = z[0, 0] / n
+varEst = (sumSqrs - n * ybar**2) / (n - 1) # SST / (N-1)
 # STEP 14 END
 
 # STEP 15 START
-rAdj = # Your Code Here
+rAdj = 1 - ((sumSqrs - b.T * z) / (n - q)) / varEst # 1 - (SSE / (n-q)/ SST / (n-1))
 # STEP 15 END
 
 # STEP 16 START
