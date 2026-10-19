@@ -10,7 +10,8 @@ Alban
 
 
 Daniel
-- 
+- Completed linearRegression.py
+- Completed data extraction layer (Steps 1-10)
 
 Milan
 - 
