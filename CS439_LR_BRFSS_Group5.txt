@@ -1,17 +1,27 @@
 Libraries Used:
+- numpy
 
 Modules Used:
+- importlib
+- io
+- numpy
+- os
+- pathlib
+- sys
+- zipfile
 
 
 Division of Labor:
 
 Alban
-- 
+- Implemented adjusted R-squared calculation (Steps 14-15)
+- Tested regression_health on the BRFSS data
+- Ran notebook_format_test.py to check functions and imports.
 
-
+ 
 Daniel
 - Completed linearRegression.py
 - Completed data extraction layer (Steps 1-10)
 
 Milan
-- 
+- Implemented regression statistics and coefficient calculation (Steps 11–13)
