@@ -16,7 +16,7 @@ Division of Labor:
 Alban
 - Implemented adjusted R-squared calculation (Steps 14-15)
 - Tested regression_health on the BRFSS data
-- Ran notebook_format_test.py to check functions and imports.
+- Ran notebook_format_test.py to check functions and imports
 
  
 Daniel
